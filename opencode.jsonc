@@ -1,0 +1,33 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+
+  "plugin": [
+    "oh-my-opencode-slim",
+    "opencode-github-release",
+    "opencode-antigravity-auth@latest",
+    "oh-my-opencode-slim",
+    "OpenAI-Codex Auth",
+    "Command-Inject",
+    "Direnv",
+    "CC-Safety-Net",
+    "Envsitter-Guard",
+    "opencode-review",
+    "OpenCodeRAG",
+    "Handoff",
+    "opencode-short-term-memory",
+    "Opencode-Notify"
+  ],
+
+  "agent": {
+    "explore": {
+      "disable": true
+    },
+    "general": {
+      "disable": true
+    }
+  },
+ "mcp": {
+     }, 
+"lsp": true,
+  "shell": "/run/current-system/sw/bin/zsh"
+}

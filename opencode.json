@@ -1,0 +1,6 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "codebase-memory-mcp": {"command":["/home/zumuvik/.local/bin/codebase-memory-mcp"],"type":"local"}
+  }
+}
