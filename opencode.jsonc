@@ -27,7 +27,12 @@
     }
   },
  "mcp": {
-     }, 
+    "codebase-memory-mcp": {
+      "type": "local",
+      "command": ["/home/zumuvik/.local/bin/codebase-memory-mcp"],
+      "enabled": true
+    }
+  },
 "lsp": true,
   "shell": "/run/current-system/sw/bin/zsh"
 }

@@ -7,15 +7,16 @@
   "presets": {
     // ============================================================
     // ECONOMY
-    // Минимальный расход: почти вся работа на Terra Fast.
+    // Минимальный расход: массовая работа на Luna.
+    // Terra координирует и решает задачи, требующие больше качества.
     // Sol используется только для редкого архитектурного анализа.
     // ============================================================
     "economy": {
       "orchestrator": {
-        "model": "openai/gpt-5.6-terra-fast",
+        "model": "openai/gpt-5.6-terra",
         "variant": "low",
         "skills": ["*"],
-        "mcps": ["contextstream"]
+        "mcps": ["contextstream", "codebase-memory-mcp"]
       },
 
       "oracle": {
@@ -26,35 +27,36 @@
       },
 
       "librarian": {
-        "model": "openai/gpt-5.6-terra-fast",
+        "model": "openai/gpt-5.6-luna",
         "variant": "low",
         "skills": [],
         "mcps": ["websearch", "context7", "gh_grep"]
       },
 
       "explorer": {
-        "model": "openai/gpt-5.6-terra-fast",
+        "model": "openai/gpt-5.6-luna",
         "variant": "low",
         "skills": [],
         "mcps": []
       },
 
       "fixer": {
-        "model": "openai/gpt-5.6-terra-fast",
+        "model": "openai/gpt-5.6-luna",
         "variant": "low",
         "skills": [],
         "mcps": []
       },
 
       "designer": {
-        "model": "openai/gpt-5.6-terra-fast",
+        "model": "openai/gpt-5.6-terra",
         "variant": "medium",
         "skills": [],
         "mcps": []
       },
 
       "observer": {
-        "model": "openai/gpt-5.6-terra-fast",
+        // Priority-route оставлен для интерактивного анализа изображений.
+        "model": "openai/gpt-5.6-luna",
         "variant": "low",
         "skills": [],
         "mcps": []
@@ -71,16 +73,17 @@
     // ============================================================
     // BALANCED
     // Основной профиль для ежедневной разработки.
-    // Terra Fast выполняет массовую работу.
-    // Terra отвечает за координацию и сложные изменения.
+    // Luna выполняет массовую и хорошо ограниченную работу.
+    // Terra отвечает за координацию, реализацию и дизайн.
     // Sol используется для Oracle.
     // ============================================================
     "balanced": {
       "orchestrator": {
+        // Priority-route оправдан здесь: пользователь ждёт координации.
         "model": "openai/gpt-5.6-terra",
         "variant": "medium",
         "skills": ["*"],
-        "mcps": ["contextstream"]
+        "mcps": ["contextstream", "codebase-memory-mcp"]
       },
 
       "oracle": {
@@ -91,21 +94,21 @@
       },
 
       "librarian": {
-        "model": "openai/gpt-5.6-terra-fast",
+        "model": "openai/gpt-5.6-luna",
         "variant": "low",
         "skills": [],
         "mcps": ["websearch", "context7", "gh_grep"]
       },
 
       "explorer": {
-        "model": "openai/gpt-5.6-terra-fast",
+        "model": "openai/gpt-5.6-luna",
         "variant": "low",
         "skills": [],
         "mcps": []
       },
 
       "fixer": {
-        "model": "openai/gpt-5.6-terra-fast",
+        "model": "openai/gpt-5.6-terra",
         "variant": "medium",
         "skills": [],
         "mcps": []
@@ -119,7 +122,7 @@
       },
 
       "observer": {
-        "model": "openai/gpt-5.6-terra-fast",
+        "model": "openai/gpt-5.6-luna",
         "variant": "low",
         "skills": [],
         "mcps": []
@@ -142,7 +145,7 @@
         "model": "openai/gpt-5.6-terra",
         "variant": "high",
         "skills": ["*"],
-        "mcps": ["contextstream"]
+        "mcps": ["contextstream", "codebase-memory-mcp"]
       },
 
       "oracle": {
@@ -153,14 +156,14 @@
       },
 
       "librarian": {
-        "model": "openai/gpt-5.6-terra-fast",
+        "model": "openai/gpt-5.6-luna",
         "variant": "medium",
         "skills": [],
         "mcps": ["websearch", "context7", "gh_grep"]
       },
 
       "explorer": {
-        "model": "openai/gpt-5.6-terra-fast",
+        "model": "openai/gpt-5.6-luna",
         "variant": "medium",
         "skills": [],
         "mcps": []
@@ -181,13 +184,14 @@
       },
 
       "observer": {
-        "model": "openai/gpt-5.6-terra-fast",
+        "model": "openai/gpt-5.6-luna",
         "variant": "medium",
         "skills": [],
         "mcps": []
       },
 
       "council": {
+        // Самый дорогой priority-route доступен только отключённому Council.
         "model": "openai/gpt-5.6-sol",
         "variant": "high",
         "skills": ["simplify"],
@@ -205,7 +209,7 @@
 
   // Ограничиваем накопление дочерних сессий и лишний параллелизм.
   "backgroundJobs": {
-    "maxSessionsPerAgent": 1,
+    "maxSessionsPerAgent": 2,
     "readContextMinLines": 10,
     "readContextMaxFiles": 6
   },
