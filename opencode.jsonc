@@ -15,7 +15,8 @@
     "OpenCodeRAG",
     "Handoff",
     "opencode-short-term-memory",
-    "Opencode-Notify"
+    "Opencode-Notify",
+    "opencode-ai"
   ],
 
   "agent": {
@@ -31,8 +32,40 @@
       "type": "local",
       "command": ["/home/zumuvik/.local/bin/codebase-memory-mcp"],
       "enabled": true
+    },
+      "tangled": {
+    "type": "local",
+    "command": [
+  "uvx",
+  "--from",
+  "git+https://github.com/zzstoatzz/tangled-mcp",
+  "tangled-mcp"
+	],
+    "enabled": true,
+    "environment": {
+      "TANGLED_HANDLE": "zumuvik.tngl.sh",
+      "TANGLED_PASSWORD": "{file:~/.config/opencode/password/tangled-app-password}"
     }
   },
+
+   "telegram": {
+  "type": "local",
+  "command": [
+    "uvx",
+    "--with",
+    "mcp<2",
+    "--from",
+    "git+https://github.com/TONresistor/telethon-mcp@bcd873de6f91144eaf2823bb30e306385d61e0b3",
+    "telethon-mcp-server"
+  ],
+  "enabled": true,
+  "environment": {
+    "TELETHON_MCP_API_ID": "{file:~/.config/opencode/password/telegram-api-id}",
+    "TELETHON_MCP_API_HASH": "{file:~/.config/opencode/password/telegram-api-hash}",
+    "TELETHON_MCP_LOG_FILE": "/home/zumuvik/.local/state/telethon-mcp/server.log"
+ 	  }
+	 }
+ },
 "lsp": true,
   "shell": "/run/current-system/sw/bin/zsh"
 }

@@ -1,0 +1,10 @@
+node_modules
+package.json
+package-lock.json
+bun.lock
+password/
+secrets.env.bak
+antigravity-accounts.json
+antigravity-accounts.json.*.tmp
+antigravity-signature-cache.json
+antigravity-logs/
