@@ -9,3 +9,5 @@ antigravity-accounts.json.*.tmp
 antigravity-signature-cache.json
 antigravity-logs/
 .gitignore
+opencode.json.retired-bak
+*.retired-bak

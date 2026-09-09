@@ -72,11 +72,7 @@
   },
   "fallback": {
     "enabled": true,
-    "timeoutMs": 20000,
-    "retryDelayMs": 750,
-    "maxRetries": 1,
-    "runtimeOverride": true,
-    "retry_on_empty": true
+    "maxRetries": 1
   },
   "multiplexer": {
     "type": "auto",

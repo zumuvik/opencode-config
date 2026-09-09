@@ -3,20 +3,7 @@
 
   "plugin": [
     "oh-my-opencode-slim",
-    "opencode-github-release",
-    "opencode-antigravity-auth@latest",
-    "oh-my-opencode-slim",
-    "OpenAI-Codex Auth",
-    "Command-Inject",
-    "Direnv",
-    "CC-Safety-Net",
-    "Envsitter-Guard",
-    "opencode-review",
-    "OpenCodeRAG",
-    "Handoff",
-    "opencode-short-term-memory",
-    "Opencode-Notify",
-    "opencode-ai"
+    "opencode-github-release"
   ],
 
   "agent": {
@@ -52,19 +39,26 @@
   "type": "local",
   "command": [
     "uvx",
-    "--with",
-    "mcp<2",
     "--from",
-    "git+https://github.com/TONresistor/telethon-mcp@bcd873de6f91144eaf2823bb30e306385d61e0b3",
-    "telethon-mcp-server"
+    "git+https://github.com/chigwell/telegram-mcp.git@v3.2.30",
+    "telegram-mcp"
   ],
   "enabled": true,
   "environment": {
-    "TELETHON_MCP_API_ID": "{file:~/.config/opencode/password/telegram-api-id}",
-    "TELETHON_MCP_API_HASH": "{file:~/.config/opencode/password/telegram-api-hash}",
-    "TELETHON_MCP_LOG_FILE": "/home/zumuvik/.local/state/telethon-mcp/server.log"
- 	  }
-	 }
+    "TELEGRAM_API_ID": "{file:~/.config/opencode/password/telegram-api-id}",
+    "TELEGRAM_API_HASH": "{file:~/.config/opencode/password/telegram-api-hash}",
+    "TELEGRAM_SESSION_STRING": "{file:~/.config/opencode/password/telegram-session-string}"
+   	  }
+ 	 },
+    "youtube": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "@anaisbetts/mcp-youtube"
+      ],
+      "enabled": true
+    }
  },
 "lsp": true,
   "shell": "/run/current-system/sw/bin/zsh"
