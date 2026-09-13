@@ -3,7 +3,8 @@
 
   "plugin": [
     "oh-my-opencode-slim",
-    "opencode-github-release"
+    "opencode-github-release",
+    "opencode-mem"
   ],
 
   "agent": {
